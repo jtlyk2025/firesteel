@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <title>Stroyka</title>
+    <link rel="icon" type="image/png" href="images/favicon.png"><!-- fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i"><!-- css -->
+    <link rel="stylesheet" href="vendor/bootstrap-4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/owl-carousel-2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/style.css"><!-- js -->
+    <script src="vendor/jquery-3.3.1/jquery.min.js"></script>
+    <script src="vendor/bootstrap-4.2.1/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/owl-carousel-2.3.4/owl.carousel.min.js"></script>
+    <script src="vendor/nouislider-12.1.0/nouislider.min.js"></script>
+    <script src="js/number.js"></script>
+    <script src="js/main.js"></script>
+    <script src="vendor/svg4everybody-2.1.9/svg4everybody.min.js"></script>
+    <script>
+        svg4everybody();
+    </script><!-- font - fontawesome -->
+    <link rel="stylesheet" href="vendor/fontawesome-5.6.1/css/all.min.css"><!-- font - stroyka -->
+    <link rel="stylesheet" href="fonts/stroyka/stroyka.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97489509-6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-97489509-6');
+
+
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            // Primeiro, carregar os includes
+            document.querySelectorAll("[data-include]").forEach(el => {
+                const file = el.getAttribute("data-include");
+                fetch(file)
+                    .then(resp => resp.text())
+                    .then(html => {
+                        el.innerHTML = html;
+                        
+                        // DEPOIS que os includes são carregados, configurar o botão
+                        setupDepartmentsButton();
+                    })
+                    .catch(err => console.error("Erro ao carregar include:", err));
+            });
+
+            function setupDepartmentsButton() {
+                const deptButton = document.querySelector(".departments__button");
+                const deptWrapper = document.querySelector(".departments__links-wrapper");
+                
+                if (deptButton && deptWrapper) {
+                    deptButton.addEventListener("click", function() {
+                        if (deptWrapper.style.height === "0px" || !deptWrapper.style.height) {
+                            deptWrapper.style.height = deptWrapper.scrollHeight + "px";
+                            deptWrapper.style.opacity = "1";
+                        } else {
+                            deptWrapper.style.height = "0px";
+                            deptWrapper.style.opacity = "0";
+                        }
+                    });
+                }
+            }
+            
+            // Alternativa: Usar event delegation para funcionar mesmo com conteúdo dinâmico
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.departments__button')) {
+                    const deptWrapper = document.querySelector(".departments__links-wrapper");
+                    if (deptWrapper) {
+                        if (deptWrapper.style.height === "0px" || !deptWrapper.style.height) {
+                            deptWrapper.style.height = deptWrapper.scrollHeight + "px";
+                            deptWrapper.style.opacity = "1";
+                        } else {
+                            deptWrapper.style.height = "0px";
+                            deptWrapper.style.opacity = "0";
+                        }
+                    }
+                }
+            });
+        });
+    
+
+
+
+
+    </script>
+</head>
+
+<body><!-- quickview-modal -->
+
+
+
+    <div class="site"><!-- mobile site__header -->
+        <div data-include="partials/interheader.html"></div>
+       
+
+
+        <div class="site__body">
+            <div class="page-header">
+                <div class="page-header__container container">
+                    <div class="page-header__breadcrumb">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a> <svg
+                                        class="breadcrumb-arrow" width="6px" height="9px">
+                                        <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
+                                    </svg></li>
+                                <li class="breadcrumb-item"><a href="#">Breadcrumb</a> <svg
+                                        class="breadcrumb-arrow" width="6px" height="9px">
+                                        <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
+                                    </svg></li>
+                                <li class="breadcrumb-item active" aria-current="page">Typography</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="container">
+                    <div class="document">
+                        <div class="document__header">
+                            <h1 class="document__title">Typography</h1>
+                        </div>
+                        <div class="document__content typography">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus
+                                fermentum, ac pretium nibh facilisis. Vivamus venenatis viverra iaculis. Suspendisse
+                                tempor orci non sapien ullamcorper dapibus. Suspendisse at velit diam. Donec pharetra
+                                nec enim blandit vulputate.</p>
+                            <h2>H2 Header Example</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus
+                                fermentum, ac pretium nibh facilisis. Vivamus venenatis viverra iaculis. Suspendisse
+                                tempor orci non sapien ullamcorper dapibus. Suspendisse at velit diam. Donec pharetra
+                                nec enim blandit vulputate.</p>
+                            <h3>H3 Header Example</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus
+                                fermentum, ac pretium nibh facilisis. Vivamus venenatis viverra iaculis. Suspendisse
+                                tempor orci non sapien ullamcorper dapibus. Suspendisse at velit diam. Donec pharetra
+                                nec enim blandit vulputate.</p>
+                            <h4>H4 Header Example</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus
+                                fermentum, ac pretium nibh facilisis. Vivamus venenatis viverra iaculis. Suspendisse
+                                tempor orci non sapien ullamcorper dapibus. Suspendisse at velit diam. Donec pharetra
+                                nec enim blandit vulputate.</p>
+                            <h5>H5 Header Example</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus
+                                fermentum, ac pretium nibh facilisis. Vivamus venenatis viverra iaculis. Suspendisse
+                                tempor orci non sapien ullamcorper dapibus. Suspendisse at velit diam. Donec pharetra
+                                nec enim blandit vulputate.</p>
+                            <h6>H6 Header Example</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus
+                                fermentum, ac pretium nibh facilisis. Vivamus venenatis viverra iaculis. Suspendisse
+                                tempor orci non sapien ullamcorper dapibus. Suspendisse at velit diam. Donec pharetra
+                                nec enim blandit vulputate.</p>
+                            <hr>
+                            <h3>Blockquote</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus
+                                fermentum, ac pretium nibh facilisis. Vivamus venenatis viverra iaculis.</p>
+                            <blockquote>
+                                <p>Suspendisse tempor orci non sapien ullamcorper dapibus. At velit diam. Donec pharetra
+                                    nec enim blandit vulputate.</p>
+                                <p><cite>Adam Taylor</cite></p>
+                            </blockquote>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus
+                                fermentum, ac pretium nibh facilisis. Vivamus venenatis viverra iaculis.</p>
+                            <hr>
+                            <h3>Standard List</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus
+                                fermentum, ac pretium nibh facilisis. Vivamus venenatis viverra iaculis.</p>
+                            <ul>
+                                <li>Morbi dignissim hendrerit ligula, quis rutrum risus ultrices eu</li>
+                                <li>Nullam dapibus id mauris dignissim dignissim. Sed ut metus mauris.</li>
+                                <li>Nulla mollis justo faucibus, laoreet tortor ac, ornare arcu.</li>
+                                <li>Libero quis mattis sollicitudin, ipsum sem mattis ligula, pharetra consectetur nisl
+                                    mi sit amet turpis.</li>
+                                <li>Vivamus malesuada, mauris in pulvinar ultricies, eros ligula scelerisque mi, a
+                                    porttitor nulla ligula sed erat.</li>
+                            </ul>
+                            <h3>Numbered List</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus
+                                fermentum, ac pretium nibh facilisis. Vivamus venenatis viverra iaculis.</p>
+                            <ol>
+                                <li>Morbi dignissim hendrerit ligula, quis rutrum risus ultrices eu</li>
+                                <li>Nullam dapibus id mauris dignissim dignissim. Sed ut metus mauris.</li>
+                                <li>Nulla mollis justo faucibus, laoreet tortor ac, ornare arcu.</li>
+                                <li>Libero quis mattis sollicitudin, ipsum sem mattis ligula, pharetra consectetur nisl
+                                    mi sit amet turpis.</li>
+                                <li>Vivamus malesuada, mauris in pulvinar ultricies, eros ligula scelerisque mi, a
+                                    porttitor nulla ligula sed erat.</li>
+                            </ol>
+                            <h3>Text Styles</h3>
+                            <p>Lorem ipsum <strong>bold text</strong>, consectetur <em>italic text</em>. Donec facilisis
+                                <del>line through</del> neque ut purus fermentum, ac <a href="#">link</a>.
+                                Vivamus venenatis viverra iaculis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- site__body / end --><!-- site__footer -->
+
+        <div data-include="partials/footer.html"></div>
+    </div><!-- site / end -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+        const deptButton = document.querySelector(".departments__button");
+        const deptWrapper = document.querySelector(".departments__links-wrapper");
+
+        deptButton.addEventListener("click", function() {
+            if (deptWrapper.style.height === "0px" || deptWrapper.style.height === "") {
+            deptWrapper.style.height = deptWrapper.scrollHeight + "px";
+            deptWrapper.style.opacity = "1";
+            } else {
+            deptWrapper.style.height = "0px";
+            deptWrapper.style.opacity = "0";
+            }
+        });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+          document.querySelectorAll("[data-include]").forEach(el => {
+            const file = el.getAttribute("data-include");
+            fetch(file)
+              .then(resp => resp.text())
+              .then(html => {
+                el.innerHTML = html;
+              })
+              .catch(err => console.error("Erro ao carregar include:", err));
+          });
+        });
+    </script>
+
+</body>
+
+</html>
